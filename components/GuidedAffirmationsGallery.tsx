@@ -14,9 +14,7 @@ const GuidedAffirmationsGallery = ({
   return (
     <View className="my-5">
       <View className="mb-2">
-        <Text className="text-white font-bold text-xl">
-          GuidedAffirmationsGallery
-        </Text>
+        <Text className="text-white font-bold text-xl">{title}</Text>
       </View>
       <View className="space-y-2">
         <FlatList
