@@ -1,4 +1,4 @@
-import { View, Text, ImageBackground, Pressable } from "react-native";
+import { View, Text, ImageBackground, Pressable, Modal } from "react-native";
 import React, { useEffect, useState } from "react";
 import MEDITATION_IMAGES from "@/constants/meditation-images";
 import AppGradient from "@/components/AppGradient";
@@ -13,6 +13,7 @@ const Meditate = () => {
   const [isMeditating, setMeditating] = useState(false);
   const [audioSound, setSound] = useState<Audio.Sound>();
   const [isPlayingAudio, setPlayingAudio] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
   useEffect(() => {
     let timerId: NodeJS.Timeout;
     if (secondsRemaining === 0) {
@@ -60,12 +61,22 @@ const Meditate = () => {
     setSound(sound);
     return sound;
   };
+
+  const handleAdjustDuration = () => {
+    if (isMeditating) toggleMeditationSessionStatus();
+    setModalVisible(true);
+  };
+  const handleModalButtonPress = (duration: number) => {
+    setSecondsRemaining(duration);
+    setModalVisible(false);
+  };
   const formattedTimeMinutes = String(
     Math.floor(secondsRemaining / 60)
   ).padStart(2, "0");
   const formattedTimeSeconds = String(
     Math.floor(secondsRemaining % 60)
   ).padStart(2, "0");
+
   return (
     <View className="flex-1">
       <ImageBackground
@@ -89,11 +100,50 @@ const Meditate = () => {
           </View>
           <View className="mb-5">
             <CustomButton
+              title={"Adjust Duration"}
+              onPress={handleAdjustDuration}
+            />
+            <CustomButton
               title={isMeditating ? "Stop Meditating" : "Start Meditating"}
               onPress={toggleMeditationSessionStatus}
+              containerStyles="mt-5"
             />
           </View>
         </AppGradient>
+        <Modal
+          animationType="slide"
+          visible={modalVisible}
+          className="flex-1 relative"
+        >
+          <AppGradient colors={["#161b2e", "#0a4d4a", "#766e67"]}>
+            <Pressable
+              onPress={() => setModalVisible(!modalVisible)}
+              className="absolute top-8 left-6 z-10"
+            >
+              <AntDesign name="leftcircleo" size={35} color="white" />
+            </Pressable>
+            <CustomButton
+              title="10 seconds"
+              onPress={() => handleModalButtonPress(10)}
+              containerStyles="mb-5"
+            />
+            <CustomButton
+              title="5 minutes"
+              onPress={() => handleModalButtonPress(5 * 60)}
+              containerStyles="mb-5"
+            />
+            <CustomButton
+              title="10 minutes"
+              onPress={() => handleModalButtonPress(10 * 60)}
+              containerStyles="mb-5"
+            />
+            <CustomButton
+              title="15 minutes"
+              onPress={() => handleModalButtonPress(15 * 60)}
+              containerStyles="mb-5"
+            />
+          </AppGradient>
+        </Modal>
       </ImageBackground>
     </View>
   );
