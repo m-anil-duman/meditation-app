@@ -113,7 +113,7 @@ const Meditate = () => {
         <Modal
           animationType="slide"
           visible={modalVisible}
-          className="flex-1 relative"
+          className="flex-1 relative justify-center items-center"
         >
           <AppGradient colors={["#161b2e", "#0a4d4a", "#766e67"]}>
             <Pressable
@@ -122,26 +122,29 @@ const Meditate = () => {
             >
               <AntDesign name="leftcircleo" size={35} color="white" />
             </Pressable>
-            <CustomButton
-              title="10 seconds"
-              onPress={() => handleModalButtonPress(10)}
-              containerStyles="mb-5"
-            />
-            <CustomButton
-              title="5 minutes"
-              onPress={() => handleModalButtonPress(5 * 60)}
-              containerStyles="mb-5"
-            />
-            <CustomButton
-              title="10 minutes"
-              onPress={() => handleModalButtonPress(10 * 60)}
-              containerStyles="mb-5"
-            />
-            <CustomButton
-              title="15 minutes"
-              onPress={() => handleModalButtonPress(15 * 60)}
-              containerStyles="mb-5"
-            />
+
+            <View className="flex-1 justify-center">
+              <CustomButton
+                title="10 seconds"
+                onPress={() => handleModalButtonPress(10)}
+                containerStyles="mb-5"
+              />
+              <CustomButton
+                title="5 minutes"
+                onPress={() => handleModalButtonPress(5 * 60)}
+                containerStyles="mb-5"
+              />
+              <CustomButton
+                title="10 minutes"
+                onPress={() => handleModalButtonPress(10 * 60)}
+                containerStyles="mb-5"
+              />
+              <CustomButton
+                title="15 minutes"
+                onPress={() => handleModalButtonPress(15 * 60)}
+                containerStyles="mb-5"
+              />
+            </View>
           </AppGradient>
         </Modal>
       </ImageBackground>

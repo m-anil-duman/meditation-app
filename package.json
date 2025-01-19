@@ -44,6 +44,13 @@
     "expo-linear-gradient": "~14.0.2",
     "expo-av": "~15.0.2"
   },
+    "expo": {
+      "doctor": {
+        "reactNativeDirectoryCheck": {
+          "listUnknownPackages": false
+        }
+      }
+    },
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@types/jest": "^29.5.12",
@@ -55,4 +62,5 @@
     "typescript": "^5.3.3"
   },
   "private": true
+  
 }

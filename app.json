@@ -4,7 +4,7 @@
     "slug": "meditationapp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/simpleMeditationLogo.png",
+    "icon": "./assets/simpleMeditationLogo1024x1024.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -13,9 +13,10 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/simpleMeditationLogo.png",
+        "foregroundImage": "./assets/simpleMeditationLogo512x512.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anilduman.meditationapp"
     },
     "web": {
       "bundler": "metro",
@@ -36,6 +37,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "b2465f42-02cd-4498-9a49-ef91df23165a"
+      }
     }
   }
 }

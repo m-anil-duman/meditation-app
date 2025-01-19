@@ -12,7 +12,7 @@ const NatureMeditate = () => {
       <AppGradient colors={["#161b2e", "#0a4d4a", "#766e67"]}>
         <View className="mb-6">
           <Text className="text-gray-200 bm-3 font-bold text-4xl text-left">
-            Welcome ${"user.name"}
+            Welcome Jo!👋
           </Text>
           <Text className="text-indigo-100 text-xl font-medium ">
             Start your meditation practice today
